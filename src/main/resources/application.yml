@@ -1,0 +1,21 @@
+
+server:
+  port: 8090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/foodcourtmicro
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  logging:
+    level:
+      org:
+        springframework:
+          orm:
+            jpa: DEBUG
