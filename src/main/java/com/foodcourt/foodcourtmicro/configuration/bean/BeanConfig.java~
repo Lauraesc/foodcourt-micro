@@ -1,8 +1,0 @@
-package com.foodcourt.foodcourtmicro.configuration.bean;
-
-import jakarta.persistence.Column;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class BeanConfig {
-}
