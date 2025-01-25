@@ -1,5 +1,9 @@
 package com.foodcourt.foodcourtmicro.configuration.bean.feign;
 
+import com.foodcourt.foodcourtmicro.domain.exception.BadRequestException;
+import com.foodcourt.foodcourtmicro.domain.exception.ConflictException;
+import com.foodcourt.foodcourtmicro.domain.exception.InternalServerErrorException;
+import com.foodcourt.foodcourtmicro.domain.exception.ResourceNotFoundException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import org.springframework.http.HttpStatus;
@@ -13,13 +17,13 @@ public class FeignErrorDecoder implements ErrorDecoder {
         HttpStatus status = HttpStatus.valueOf(response.status());
         switch (status) {
             case CONFLICT:
-                return new IllegalArgumentException("Hubo un conflicto");
+                return new ConflictException("Hubo un conflicto");
             case BAD_REQUEST:
-                return new IllegalArgumentException("Bad request ocurred");
+                return new BadRequestException("Bad request ocurred");
             case NOT_FOUND:
-                return new IllegalArgumentException("Not found ocurred");
+                return new ResourceNotFoundException("Not found ocurred");
             case INTERNAL_SERVER_ERROR:
-                return new IllegalArgumentException("Internal server error ocurred");
+                return new InternalServerErrorException("Internal server error ocurred");
         }
         return new Exception("Error");
     }
