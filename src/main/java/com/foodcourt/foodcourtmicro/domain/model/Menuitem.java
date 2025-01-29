@@ -11,10 +11,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Menuitem {
 
+    private Long id;
     private String name;
-    private Integer price;
+    private Long id_category;
     private String description;
+    private Integer price;
+    private Long id_restaurant;
     private String urlImage;
-    private String category;
-
+    private boolean active;
 }

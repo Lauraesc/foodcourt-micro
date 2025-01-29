@@ -16,7 +16,9 @@ public class MenuitemUseCase implements IMenuitemServicePort {
 
     @Override
     public Menuitem saveMenuitem(Menuitem menuitem) {
-        return null;
+        validate(menuitem);
+
+        return menuitemPersistencePort.saveMenuitem(menuitem);
     }
 
     private void validate(Menuitem menuitem) {
