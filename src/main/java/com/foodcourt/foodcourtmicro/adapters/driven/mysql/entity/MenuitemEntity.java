@@ -33,6 +33,4 @@ public class MenuitemEntity {
     private RestaurantEntity restaurantEntity;
 
 
-
-
 }

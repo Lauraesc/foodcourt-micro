@@ -9,5 +9,5 @@ public interface IRestaurantPersistencePort {
     Restaurant saveRestaurant(Restaurant restaurant);
     Optional<Restaurant> findByNit(Long nit);
     Optional<Restaurant> findByName(String name);
-
+    Restaurant findRestaurantById(Long id);
 }

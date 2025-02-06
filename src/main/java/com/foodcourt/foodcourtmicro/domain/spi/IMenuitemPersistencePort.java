@@ -1,6 +1,7 @@
 package com.foodcourt.foodcourtmicro.domain.spi;
 
 import com.foodcourt.foodcourtmicro.domain.model.Menuitem;
+import com.foodcourt.foodcourtmicro.domain.model.Restaurant;
 
 import java.util.Optional;
 

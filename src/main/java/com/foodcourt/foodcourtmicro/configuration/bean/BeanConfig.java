@@ -54,6 +54,7 @@ public class BeanConfig {
 
     @Bean
     public IMenuitemServicePort menuitemServicePort() {
-        return new MenuitemUseCase(menuitemPersistencePort());
+        return new MenuitemUseCase(menuitemPersistencePort(), restaurantPersistencePort());
     }
+
 }

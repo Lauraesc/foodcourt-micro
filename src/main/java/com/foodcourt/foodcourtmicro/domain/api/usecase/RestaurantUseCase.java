@@ -16,6 +16,7 @@ import java.util.Optional;
 public class RestaurantUseCase implements IRestaurantServicePort {
     private final IRestaurantPersistencePort restaurantPersistencePort;
     private final IUserPersistencePort userPersistencePort;
+
     @Override
     public Restaurant saveRestaurant(Restaurant restaurant) {
 

@@ -5,6 +5,7 @@ import com.foodcourt.foodcourtmicro.adapters.driving.http.dto.request.MenuitemRe
 import com.foodcourt.foodcourtmicro.adapters.driving.http.dto.response.MenuitemResponseSave;
 import com.foodcourt.foodcourtmicro.domain.model.Menuitem;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring",
         unmappedSourcePolicy = org.mapstruct.ReportingPolicy.IGNORE,
@@ -12,6 +13,7 @@ import org.mapstruct.Mapper;
 public interface IMenuitemMapperDto {
 
 
-    Menuitem menuitemRequestToMenuitem(MenuitemRequest userRequest);
+    Menuitem menuitemRequestToMenuitem(MenuitemRequest menuitemRequest);
+    @Mapping(source = "restaurant.id", target = "id_restaurant")
     MenuitemResponseSave toMenuitemResponseSave(Menuitem menuitem);
 }

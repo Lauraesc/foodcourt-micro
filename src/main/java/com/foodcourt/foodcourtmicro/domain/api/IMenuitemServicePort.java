@@ -5,6 +5,6 @@ import com.foodcourt.foodcourtmicro.domain.model.Menuitem;
 
 public interface IMenuitemServicePort {
 
-    Menuitem saveMenuitem(Menuitem menuitem);
+    Menuitem saveMenuitem(Menuitem menuitem, Long id_restaurant);
 
 }

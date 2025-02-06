@@ -16,7 +16,7 @@ public class Menuitem {
     private Long id_category;
     private String description;
     private Integer price;
-    private Long id_restaurant;
+    private Restaurant restaurant;
     private String urlImage;
     private boolean active;
 }

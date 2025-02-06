@@ -25,8 +25,6 @@ public class MenuitemRequest {
     @NotNull(message = "El precio es obligatorio")
     @Min(value = 1, message = "El precio debe ser mayor a 0.")
     private Integer price;
-    @NotNull(message = "El id del restaurante es obligatorio")
-    private Long id_restaurant;
     @NotBlank(message = "La url de la imagen es obligatoria")
     private String urlImage;
     @NotNull(message = "El estado es obligatorio")

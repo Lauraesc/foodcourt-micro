@@ -5,6 +5,7 @@ import com.foodcourt.foodcourtmicro.adapters.driven.mysql.entity.RestaurantEntit
 import com.foodcourt.foodcourtmicro.domain.model.Menuitem;
 import com.foodcourt.foodcourtmicro.domain.model.Restaurant;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring",

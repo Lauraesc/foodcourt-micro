@@ -13,6 +13,7 @@ import java.util.Optional;
 public class MenuitemAdapter implements IMenuitemPersistencePort {
     private final IMenuitemRepository menuitemRepository;
     private final IMenuitemMapperEntity menuitemMapperEntity;
+
     @Override
     public Menuitem saveMenuitem(Menuitem menuitem) {
         return menuitemMapperEntity.menuitemEntityToMenuitem(
@@ -27,4 +28,6 @@ public class MenuitemAdapter implements IMenuitemPersistencePort {
         return menuitemRepository.findByName(name)
                 .map(menuitemMapperEntity::menuitemEntityToMenuitem);
     }
+
+
 }
