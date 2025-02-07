@@ -7,4 +7,5 @@ public interface IMenuitemServicePort {
 
     Menuitem saveMenuitem(Menuitem menuitem, Long id_restaurant);
 
+    void updateMenuitem(Long id, String description, Integer price);
 }

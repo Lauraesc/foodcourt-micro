@@ -1,6 +1,7 @@
 package com.foodcourt.foodcourtmicro.adapters.driving.http.controller;
 
 import com.foodcourt.foodcourtmicro.adapters.driving.http.dto.request.MenuitemRequest;
+import com.foodcourt.foodcourtmicro.adapters.driving.http.dto.request.MenuitemUpdateRequest;
 import com.foodcourt.foodcourtmicro.adapters.driving.http.dto.response.MenuitemResponseSave;
 import com.foodcourt.foodcourtmicro.adapters.driving.http.mapper.IMenuitemMapperDto;
 import com.foodcourt.foodcourtmicro.domain.api.IMenuitemServicePort;
@@ -8,10 +9,7 @@ import com.foodcourt.foodcourtmicro.domain.model.Menuitem;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -29,6 +27,14 @@ public class MenuitemController {
 
         return ResponseEntity.ok(menuitemMapperDto.toMenuitemResponseSave(menuitemServicePort.saveMenuitem(menuitemMapperDto
                 .menuitemRequestToMenuitem(menuitemRequest) , menuitemRequest.getId_restaurant())));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateMenuitem(@PathVariable Long id, @Valid @RequestBody MenuitemUpdateRequest menuitemUpdateRequest) {
+
+        menuitemServicePort.updateMenuitem(id, menuitemUpdateRequest.getDescription(), menuitemUpdateRequest.getPrice());
+
+        return ResponseEntity.ok().build();
     }
 
 

@@ -76,4 +76,11 @@ public class ControllerAdvisor {
                         HttpStatus.NOT_FOUND.name(), LocalDateTime.now()));
     }
 
+    @ExceptionHandler(UnauthorizedOperationException.class)
+    public ResponseEntity<ExceptionCodeResponse> handleUnauthorizedOperationException(UnauthorizedOperationException ex) {
+        return ResponseEntity.badRequest().body(
+                new ExceptionCodeResponse(Integer.valueOf(HttpStatus.UNAUTHORIZED.value()), ex.getMessage(),
+                        HttpStatus.UNAUTHORIZED.name(), LocalDateTime.now()));
+    }
+
 }
