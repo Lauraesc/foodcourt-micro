@@ -1,5 +1,6 @@
 package com.foodcourt.foodcourtmicro.configuration.bean;
 
+import com.foodcourt.foodcourtmicro.adapters.driven.auth.AuthAdapter;
 import com.foodcourt.foodcourtmicro.adapters.driven.feign.adapter.UserAdapter;
 import com.foodcourt.foodcourtmicro.adapters.driven.feign.client.IUserClient;
 import com.foodcourt.foodcourtmicro.adapters.driven.mysql.adapter.MenuitemAdapter;
@@ -12,6 +13,7 @@ import com.foodcourt.foodcourtmicro.domain.api.IMenuitemServicePort;
 import com.foodcourt.foodcourtmicro.domain.api.IRestaurantServicePort;
 import com.foodcourt.foodcourtmicro.domain.api.usecase.MenuitemUseCase;
 import com.foodcourt.foodcourtmicro.domain.api.usecase.RestaurantUseCase;
+import com.foodcourt.foodcourtmicro.domain.spi.IAuthPersistencePort;
 import com.foodcourt.foodcourtmicro.domain.spi.IMenuitemPersistencePort;
 import com.foodcourt.foodcourtmicro.domain.spi.IRestaurantPersistencePort;
 import com.foodcourt.foodcourtmicro.domain.spi.IUserPersistencePort;
@@ -43,8 +45,14 @@ public class BeanConfig {
 
     @Bean
     public IRestaurantServicePort restaurantServicePort() {
-        return new RestaurantUseCase(restaurantPersistencePort(), userPersistencePort());
+        return new RestaurantUseCase(restaurantPersistencePort(), userPersistencePort(),
+                authPersistencePort());
 
+    }
+
+    @Bean
+    public IAuthPersistencePort authPersistencePort() {
+        return new AuthAdapter();
     }
 
     @Bean

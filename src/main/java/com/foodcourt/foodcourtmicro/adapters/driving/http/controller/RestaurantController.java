@@ -7,6 +7,7 @@ import com.foodcourt.foodcourtmicro.domain.api.IRestaurantServicePort;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class RestaurantController {
     private final IRestaurantServicePort restaurantServicePort;
     private final IRestaurantMapperDto restaurantMapperDto;
 
-
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/")
     public ResponseEntity<RestaurantResponseSave> saveRestaurantAdmin(@Valid @RequestBody RestaurantRequest userRequest) {
         return ResponseEntity.ok(restaurantMapperDto.toRestaurantResponseSave(restaurantServicePort.saveRestaurant(restaurantMapperDto
